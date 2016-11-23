@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Clientes" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d3db4c9a-6d94-4f11-8d49-1842f9260dd2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[select * from cliente;]]>
+	</queryString>
+	<field name="id_cli" class="java.lang.Integer"/>
+	<field name="nome_cli" class="java.lang.String"/>
+	<field name="rg_cli" class="java.lang.String"/>
+	<field name="cpf_cli" class="java.lang.String"/>
+	<field name="sexo_cli" class="java.lang.String"/>
+	<field name="dt_nasc_cli" class="java.sql.Date"/>
+	<field name="tel1_cli" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="802" height="136" uuid="b6827fba-e18f-45e2-8baa-da7c9f7a8998"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Relatório Clientes]]></text>
+			</staticText>
+			<image>
+				<reportElement x="614" y="0" width="173" height="124" uuid="95e89ce5-ba7b-491b-8b9f-002eb24115ba"/>
+				<imageExpression><![CDATA["/home/nataniel/NetBeansProjects/ClinicaComBanco/src/img/logo.jpeg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="119ac1a8-b3d5-4280-9db6-e32263c4dfc6"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="37" height="15" forecolor="#736343" uuid="f6409056-4b3a-4a02-a86b-69e33331298e"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="74" y="0" width="114" height="15" forecolor="#736343" uuid="bb2dc47a-bbb0-4227-8768-ee184d2abc36"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="244" y="0" width="48" height="15" forecolor="#736343" uuid="d00485de-500f-4b9f-a364-0a73f8b3d649"/>
+				<text><![CDATA[RG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="342" y="0" width="114" height="15" forecolor="#736343" uuid="48228cd2-b487-4b7a-ae2b-6d0bdab696c1"/>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="456" y="0" width="114" height="15" forecolor="#736343" uuid="8b9707a9-0fe1-4e6f-8bf6-f1f6cb1cb4b1"/>
+				<text><![CDATA[sexo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="570" y="0" width="114" height="15" forecolor="#736343" uuid="be802961-761a-481e-bd45-bee3afc52f35"/>
+				<text><![CDATA[Data Nascimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="684" y="0" width="114" height="15" forecolor="#736343" uuid="dd7a6dca-f7ef-4732-9f23-26ee0ba34a2b"/>
+				<text><![CDATA[Contato]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="8a9f887e-0e32-4e24-a5a8-8711a781190a"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="53" height="15" uuid="b0ab8485-7f49-4c01-9789-9c62c0ad4155"/>
+					<textFieldExpression><![CDATA[$F{id_cli}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="72" y="0" width="169" height="15" uuid="10d93622-635a-4656-8e4e-5903aee4a6aa"/>
+					<textFieldExpression><![CDATA[$F{nome_cli}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="241" y="0" width="64" height="15" uuid="3a5ee9ca-9ecc-4342-a003-c479095163fe"/>
+					<textFieldExpression><![CDATA[$F{rg_cli}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="342" y="0" width="114" height="15" uuid="da6ec23f-5c64-4398-bc30-fe20b087c6c0"/>
+					<textFieldExpression><![CDATA[$F{cpf_cli}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="456" y="0" width="114" height="15" uuid="a967bfa1-00fa-45bb-9520-b2edda9af498"/>
+					<textFieldExpression><![CDATA[$F{sexo_cli}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="570" y="0" width="114" height="15" uuid="563ba31a-9287-4a96-a76c-4d5295494c7a"/>
+					<textFieldExpression><![CDATA[$F{dt_nasc_cli}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="684" y="0" width="114" height="15" uuid="3aea5035-c876-4f60-84ea-4e8c51295104"/>
+					<textFieldExpression><![CDATA[$F{tel1_cli}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="66b7e857-b938-415a-ab31-add6df50a361"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="7cdc6e9f-3439-47d1-bc3e-4f1c60aab24e"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="490444b3-41c3-4d85-b8c8-7878ff73f2f9"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343" uuid="bafa8e5e-058e-4383-8e01-b2721642d365"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="2da47c02-6baf-44aa-bcbb-718b023aeda8"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
